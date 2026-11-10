@@ -116,7 +116,6 @@ ascii-text-generator/
 │   │   └── dependabot-auto-merge.yml # Dependency automation
 │   └── dependabot.yml              # Dependabot configuration
 ├── index.html                       # Main application entry point
-├── LICENSE                          # Apache 2.0 license
 └── README.md                        # This file
 ```
 
@@ -832,42 +831,4 @@ For applications serving many concurrent users:
 2. Use a CDN for global distribution
 3. Consider implementing font preloading for popular fonts
 4. Monitor browser memory usage for long sessions
-
-## License
-
-This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for complete details.
-
-### What You Can Do
-
-✅ Use commercially
-✅ Modify the source code
-✅ Distribute the software
-✅ Use privately
-
-### What You Must Do
-
-📋 Include a copy of the license
-📋 Document significant changes to the code
-
-### What You Cannot Do
-
-❌ Hold the authors liable for any issues
-❌ Use the author's trademarks without permission
-
-For more information, visit the [Apache License 2.0 Official Page](https://www.apache.org/licenses/LICENSE-2.0).
-
-## Support the Project
-
-[![Patreon](https://img.shields.io/badge/Patreon-OstinFCT-f96854?style=flat-square&logo=patreon)](https://www.patreon.com/OstinFCT)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-fctostin-29abe0?style=flat-square&logo=ko-fi)](https://ko-fi.com/fctostin)
-[![Boosty](https://img.shields.io/badge/Boosty-Support-f15f2c?style=flat-square)](https://boosty.to/ostinfct)
-[![YouTube](https://img.shields.io/badge/YouTube-FCT--Ostin-red?style=flat-square&logo=youtube)](https://www.youtube.com/@FCT-Ostin)
-[![Telegram](https://img.shields.io/badge/Telegram-FCTostin-2ca5e0?style=flat-square&logo=telegram)](https://t.me/FCTostin)
-
-If you find this tool useful, consider leaving a star on GitHub or supporting the author directly.
-
----
-
-**Built with ❤️ by [Readmify](https://github.com/Readmify)**
-
 
