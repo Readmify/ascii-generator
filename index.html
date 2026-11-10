@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Text Generator — GitHub Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/figlet@1.8.0/lib/figlet.js" integrity="sha384-em0OyuFXh2k1VJ3wPPqhDLUT+NWQKu8iKHx8cYUupkPUDMK5wShbAor9tUOU3S76" crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+    <header class="gh-header">
+        <div class="gh-header-inner">
+            <a href="https://github.com/readme-SVG" class="gh-logo">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                <span>readme-SVG</span>
+            </a>
+            <div class="gh-breadcrumb">
+                <span class="sep">/</span>
+                <a href="https://github.com/readme-SVG/ascii-text-generator">ascii-text-generator</a>
+                <span class="sep">/</span>
+                <span>generator</span>
+            </div>
+            <div class="header-spacer"></div>
+            <div class="gh-header-actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="langToggleBtn" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span id="langBtnText">English</span>
+                        <span class="caret">▾</span>
+                    </button>
+                    <div class="lang-menu" id="langMenu"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        <div class="content-stack">
+            <section class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 2.75A2.75 2.75 0 0 1 2.75 0h10.5A2.75 2.75 0 0 1 16 2.75v10.5A2.75 2.75 0 0 1 13.25 16H2.75A2.75 2.75 0 0 1 0 13.25V2.75zm2.75-1.25c-.69 0-1.25.56-1.25 1.25v10.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25V2.75c0-.69-.56-1.25-1.25-1.25H2.75zM4.5 5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/></svg>
+                        <span id="label-config">Configuration</span>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group form-group-last">
+                        <label class="form-label" id="label-text" for="inputText">Text Input</label>
+                        <textarea id="inputText" rows="3" maxlength="200" placeholder="README&#10;My Project" spellcheck="false">README</textarea>
+                    </div>
+                    <button class="btn btn-primary" id="generateBtn" type="button">
+                        <svg class="icon-sm" viewBox="0 0 16 16" aria-hidden="true"><path d="M8.4 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0.4 8a8 8 0 1 1 16 0 8 8 0 0 1-16 0z"/><path d="M6.4 5.5v5l5-2.5-5-2.5z"/></svg>
+                        <span id="btn-generate-text">Generate ASCII Art</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="tabs-nav" role="tablist" aria-label="Output views">
+                    <button class="tab-item active" id="tab-btn-code" type="button" data-tab="code" role="tab" aria-selected="true" aria-controls="pane-code">
+                        <svg class="icon-md" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Zm7.47 3.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L11.19 8 9.22 6.03a.75.75 0 0 1 0-1.06Zm-4.94 0a.75.75 0 0 1 0 1.06L4.81 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Z"/></svg>
+                        <span id="tab-code-label">Code</span>
+                    </button>
+                    <button class="tab-item" id="tab-btn-preview" type="button" data-tab="preview" role="tab" aria-selected="false" aria-controls="pane-preview">
+                        <svg class="icon-md" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"/></svg>
+                        <span id="tab-preview-label">Preview</span>
+                    </button>
+                </div>
+
+                <div id="pane-code" class="tab-pane active" role="tabpanel" aria-labelledby="tab-btn-code">
+                    <div class="output-wrap">
+                        <div class="output-toolbar">
+                            <div class="output-meta">
+                                <span class="output-badge">markdown</span>
+                                <span class="line-count" id="lineCount">0 lines</span>
+                            </div>
+                            <button class="btn btn-secondary" id="copyBtn" type="button">
+                                <svg class="icon-xs" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>
+                                <span id="copy-btn-text">Copy</span>
+                            </button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-inner">
+                                <div class="line-nums" id="lineNums">1</div>
+                                <textarea id="outputCode" readonly spellcheck="false"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-preview" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-preview">
+                    <div class="preview-block">
+                        <div id="previewArea"></div>
+                    </div>
+                </div>
+
+                <div class="status-bar">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span id="statusMsg">Ready</span>
+                    <span class="status-font" id="statusFont">—</span>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <section class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2.75a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75Zm0 5a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
+                        <span id="label-align">Alignment</span>
+                    </span>
+                </div>
+                <div class="align-btns">
+                    <button class="align-btn" id="align-left" type="button" data-align="left" title="Left">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 1 7.75Zm0 5a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75Z"/></svg>
+                        <span id="opt-left">Left</span>
+                    </button>
+                    <button class="align-btn active" id="align-center" type="button" data-align="center" title="Center">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm3 5A.75.75 0 0 1 4.75 7h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 4 7.75Zm-1.25 5A.75.75 0 0 1 3.5 12h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Z"/></svg>
+                        <span id="opt-center">Center</span>
+                    </button>
+                    <button class="align-btn" id="align-right" type="button" data-align="right" title="Right">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm5 5A.75.75 0 0 1 6.75 7h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 6 7.75Zm-2.25 5a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Z"/></svg>
+                        <span id="opt-right">Right</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.27 6a.75.75 0 0 1 .74.641l.161 1.234c.196-.175.408-.33.641-.46A3.75 3.75 0 0 1 9.5 7c.966 0 1.85.375 2.508.984A3.75 3.75 0 0 1 13 10.75v4.5a.75.75 0 0 1-1.5 0v-4.5c0-.732-.3-1.394-.786-1.872A2.25 2.25 0 0 0 9.5 8.5a2.25 2.25 0 0 0-2.25 2.25v4.5a.75.75 0 0 1-1.5 0v-4.5A3.757 3.757 0 0 1 6.9 8.09L6.27 3.5H4.75a.75.75 0 0 1 0-1.5h2a.75.75 0 0 1 .743.641L7.753 5H12a.75.75 0 0 1 0 1.5H6.27Z"/></svg>
+                        <span id="label-fonts">Fonts</span>
+                    </span>
+                </div>
+                <div class="font-preview-list" id="fontList"></div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 1.75a.75.75 0 0 0-1.5 0v12.5c0 .414.336.75.75.75H14.25a.75.75 0 0 0 0-1.5H1.5V1.75zM3 9.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5zM9 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5z"/></svg>
+                        <span id="label-stats">Stats</span>
+                    </span>
+                </div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <span class="key" id="stat-label-lines">Lines</span>
+                        <span class="val" id="stat-lines">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="key" id="stat-label-chars">Characters</span>
+                        <span class="val" id="stat-chars">—</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+                        <span id="label-usage">Usage</span>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <p class="usage-copy" id="usage-text"></p>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <footer class="gh-footer">
+        <span id="footer-text">If this tool saved you time — a <a href="https://github.com/readme-SVG/ascii-text-generator">⭐</a> means a lot!</span>
+    </footer>
+</body>
+</html>
